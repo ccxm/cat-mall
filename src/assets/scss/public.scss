@@ -1,0 +1,127 @@
+html,body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.x-center {
+  display: flex;
+  justify-content: center;
+}
+
+.y-center {
+  display: flex;
+  align-items: center;
+}
+
+//垂直方向居中
+.yx-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.xy-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.y-center__between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.bottom-line {
+	width: 100%;
+	height: 3px;
+	background: #f2f2f2;
+}
+
+@font-face {
+  font-family: 'DFPHaiBaoW12-GB';
+  src: url("./../../../public/font/DFPHaiBaoW12-GB.ttf");
+}
+
+@font-face {
+  font-family: 'FZMiaoWuS-GB';
+  src: url("./../../../public/font/FZMiaoWuS-GB.ttf");
+}
+
+@keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: .6;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: .6;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+// 选择180度
+@keyframes rotate-opposite {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+@-webkit-keyframes rotate-opposite {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1541787 */
+  src: url('//at.alicdn.com/t/font_1541787_5m1rtt5vyqq.eot');
+  src: url('//at.alicdn.com/t/font_1541787_5m1rtt5vyqq.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1541787_5m1rtt5vyqq.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1541787_5m1rtt5vyqq.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1541787_5m1rtt5vyqq.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1541787_5m1rtt5vyqq.svg#iconfont') format('svg');
+}
+
+.paying-tips {
+  background-color: #f0f9eb;
+  border-color: #e1f3d8;
+  color: #67C23A !important;
+
+  p {
+    margin-left: 15px;
+  }
+}
+
+
+
