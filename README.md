@@ -66,6 +66,7 @@ npm run serve
 ```
 
 ## 项目截图
+
 首页
 
 ![img-1](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/1.png)
@@ -74,35 +75,45 @@ npm run serve
 
 ![img-2](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/2.png)
 
-![img-3](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/3.png)
 首页-选中商品
 
-![img-4](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/4.png)
+![img-3](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/3.png)
+
 商品详情
 
-![img-5](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/5.png)
+![img-4](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/4.png)
+
 评论与短评
 
-![img-6](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/6.png)
+![img-5](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/5.png)
+
 下单-选择收获地址
 
-![img-7](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/7.png)
+![img-6](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/6.png)
+
 下单-预览商品
 
-![img-8](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/8.png)
+![img-7](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/7.png)
+
 下单-输入支付密码
 
-![img-9](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/9.png)
+![img-8](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/8.png)
+
 下单-成功下单
 
-![img-10](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/10.png)
+![img-9](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/9.png)
+
 订单列表
 
-![img-11](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/11.png)
+![img-10](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/10.png)
+
 修改个人信息
 
-![img-12](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/12.png)
+![img-11](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/11.png)
+
 购物车
+
+![img-12](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/12.png)
 
 ## 赞赏作者续费服务器~~
 支付宝 | 微信
