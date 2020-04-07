@@ -121,6 +121,8 @@ npm run serve
 ------|------
 ![img-alipay](https://raw.githubusercontent.com/ccxm/md-image-store/master/donate-qrcode/alipy.png)|![imag-wechat](https://raw.githubusercontent.com/ccxm/md-image-store/master/donate-qrcode/wechat.png)
 
+觉得写得还不错的记得给个star哦，持续更新~
+
 
 
 
