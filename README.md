@@ -25,6 +25,7 @@
 - node.js
 - typescript
 - mongodb
+- jwt
 
 ## 项目功能
 
