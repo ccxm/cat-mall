@@ -66,11 +66,13 @@ npm run serve
 ```
 
 ## 项目截图
-![img-1](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/1.png)
 首页
 
-![img-2](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/2.png)
+![img-1](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/1.png)
+
 首页-筛选价格
+
+![img-2](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/2.png)
 
 ![img-3](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/3.png)
 首页-选中商品
