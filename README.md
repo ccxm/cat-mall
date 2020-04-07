@@ -11,6 +11,7 @@
 后端源码：https://github.com/ccxm/cat-mall-server
 
 体验账号：1532917281@qq.com，123456 
+
 (ps: 此账号是真实的邮箱，要用到验证码的地方还是要自己注册一个账号哦)
 
 ## 简介
@@ -68,45 +69,45 @@ npm run serve
 
 ## 项目截图
 ![img-1](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/1.png)
-<center>首页</center>
+首页
 
 ![img-2](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/2.png)
-<center>首页-筛选价格</center>
+首页-筛选价格
 
 ![img-3](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/3.png)
-<center>首页-选中商品</center>
+首页-选中商品
 
 ![img-4](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/4.png)
-<center>商品详情</center>
+商品详情
 
 ![img-5](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/5.png)
-<center>评论与短评</center>
+评论与短评
 
 ![img-6](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/6.png)
-<center>下单-选择收获地址</center>
+下单-选择收获地址
 
 ![img-7](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/7.png)
-<center>下单-预览商品</center>
+下单-预览商品
 
 ![img-8](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/8.png)
-<center>下单-输入支付密码</center>
+下单-输入支付密码
 
 ![img-9](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/9.png)
-<center>下单-成功下单</center>
+下单-成功下单
 
 ![img-10](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/10.png)
-<center>订单列表</center>
+订单列表
 
 ![img-11](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/11.png)
-<center>修改个人信息</center>
+修改个人信息
 
 ![img-12](https://raw.githubusercontent.com/ccxm/md-image-store/master/cat-mall/12.png)
-<center>购物车</center>
+购物车
 
 ## 赞赏作者续费服务器~~
-<center>支付宝</center> | <center>微信</center>
+支付宝 | 微信
 ------|------
-![](https://raw.githubusercontent.com/ccxm/md-image-store/master/donate-qrcode/alipy.png)|![](https://raw.githubusercontent.com/ccxm/md-image-store/master/donate-qrcode/wechat.png)
+![img-alipay](https://raw.githubusercontent.com/ccxm/md-image-store/master/donate-qrcode/alipy.png)|![imag-wechat](https://raw.githubusercontent.com/ccxm/md-image-store/master/donate-qrcode/wechat.png)
 
 
 
