@@ -2,7 +2,7 @@
 
 ## 项目地址
 
-前端：https://mall.cxmmao.com/#/
+预览地址：https://mall.cxmmao.com/#/
 
 接口文档：https://mall.cxmmao.com/cat-mall-api-doc/
 
