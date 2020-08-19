@@ -241,14 +241,9 @@
                 })
                 return temp
             }
-            // // 获取商品图片
-            // _getGoodsImgList() {
-            //     this.imgList = []
-            //     this
-            // }
         },
         mounted() {
-            console.log(1111111111111)
+
         }
     }
 </script>

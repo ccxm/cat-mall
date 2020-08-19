@@ -1,3 +1,8 @@
+const path = require('path')
+
+function resolve(dir) {
+    return path.join(__dirname, dir)
+}
 module.exports = {
     configureWebpack: {
         resolve: {
@@ -6,7 +11,8 @@ module.exports = {
                 '@components': '@/components',
                 '@common': '@/common',
                 '@views': '@/views',
-                '@images': '/public/images'
+                '@images': '/public/images',
+                '@': resolve('src')
             }
         }
     },

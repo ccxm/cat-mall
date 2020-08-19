@@ -8,7 +8,7 @@
                 <el-dropdown-item>邮箱：{{(getUserInfo ? getUserInfo.email : '') | formatString(18)}}</el-dropdown-item>
                 <el-dropdown-item>昵称：{{(getUserInfo ? getUserInfo.nickName : '') | formatString(18)}}</el-dropdown-item>
                 <el-dropdown-item class="y-center__between">
-                    <span>账户余额：{{getUserInfo ? getUserInfo.balance : ''}}元</span>
+                    <span>账户余额：{{getUserInfo ? getUserInfo.balance.toFixed(2) : ''}}元</span>
                     <el-button type="primary" class="recharge" @click="showRecharge = true">充值</el-button>
                 </el-dropdown-item>
                 <el-dropdown-item divided @click.native="goToPersonal">我的主页</el-dropdown-item>
