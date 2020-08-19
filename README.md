@@ -2,7 +2,7 @@
 
 ## 项目地址
 
-前端：https://mall.cxmmao.com/#/
+预览地址：https://mall.cxmmao.com/#/
 
 接口文档：https://mall.cxmmao.com/cat-mall-api-doc/
 
@@ -25,6 +25,7 @@
 - node.js
 - typescript
 - mongodb
+- jwt
 
 ## 项目功能
 
@@ -119,6 +120,8 @@ npm run serve
 支付宝 | 微信
 ------|------
 ![img-alipay](https://raw.githubusercontent.com/ccxm/md-image-store/master/donate-qrcode/alipy.png)|![imag-wechat](https://raw.githubusercontent.com/ccxm/md-image-store/master/donate-qrcode/wechat.png)
+
+觉得写得还不错的记得给个star哦，持续更新~
 
 
 
