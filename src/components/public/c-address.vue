@@ -21,14 +21,15 @@
             </div>
         </div>
         <c-edit-address :is-show="isShowEdit" :address="address" @hide="isShowEdit = false"/>
-        <c-modal :context="'是否删除这个地址？'" :is-show-modal="isShowDel" @hide="onHide" @confirm="deleteAddress" :is-show-cancel="true"/>
+        <c-modal :context="'是否删除这个地址？'" :is-show-modal="isShowDel" @hide="onHide" @confirm="deleteAddress"
+                 :is-show-cancel="true"/>
     </div>
 </template>
 
 <script>
     import CModal from './c-modal.vue'
-    import CEditAddress from './../pages/my/c-edit-address'
-    import { pDeleteAddress } from './../../js/http/param'
+    import CEditAddress from '@/pages/my/components/c-edit-address'
+    import { pDeleteAddress } from '@api/user/params'
 
     export default {
         name: 'CAddress',
@@ -58,9 +59,9 @@
             },
             deleteAddress() {
                 pDeleteAddress.addressId = this.address.addressId
-                this.$api.deleteAddress(pDeleteAddress).then(res =>{
+                this.$api.user.deleteAddress(pDeleteAddress).then(res => {
                     console.log(res)
-                    this.bus.$emit('updateAddressList')
+                    this.$bus.$emit('updateAddressList')
                 }).catch(err => {
                     console.log(err)
                 })

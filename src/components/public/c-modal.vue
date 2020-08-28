@@ -84,7 +84,7 @@
             }
         },
         computed: {
-            setStyle: function () {
+            setStyle: function() {
                 return {
                     width: this.width,
                     background: this.bgColor
@@ -97,7 +97,7 @@
             }
         },
         watch: {
-            isShowModal: function (val) {
+            isShowModal: function(val) {
                 console.log(val)
                 this.isShow = val
             }

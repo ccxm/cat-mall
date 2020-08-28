@@ -10,14 +10,16 @@ module.exports = {
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-        'no-trailing-spaces': ["error", {"skipBlankLines": true}],
+        'no-trailing-spaces': ['error', { 'skipBlankLines': true }],
         'space-before-function-paren': ['error', 'never'],
         'indent': 'off',
+        // 'indent': ["error", 4, { SwitchCase: 1 }],
         'vue/script-indent': [
             'error',
             4,
             {
-                'baseIndent': 1
+                'baseIndent': 1,
+                'switchCase': 1
             }
         ]
     },

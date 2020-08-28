@@ -5,15 +5,19 @@
             <div class="recharge-container" slot="custom">
                 <div class="recharge-item-container">
                     <div v-for="(item, key) in rechargeList" :key="key">
-                        <div class="c-recharge-item xy-center" :class="selectedKey === key ? 'select-recharge-item' : ''"  @click="onSelect(key)">
+                        <div class="c-recharge-item xy-center"
+                             :class="selectedKey === key ? 'select-recharge-item' : ''" @click="onSelect(key)">
                             <span>{{item}}</span>
                             <span>元</span>
                         </div>
                     </div>
                 </div>
                 <div class="recharge-input-container">
-                    <el-input placeholder="请输入邮箱验证码" autocomplete="off" maxlength="6" v-model="verifyCode" @input="onInput" class="verify-code">
-                        <el-button v-if="time === 60" class="get-verify-code" slot="suffix" @click="getVerifyCode" :loading="getting">获取验证码</el-button>
+                    <el-input placeholder="请输入邮箱验证码" autocomplete="off" maxlength="6" v-model="verifyCode"
+                              @input="onInput" class="verify-code">
+                        <el-button v-if="time === 60" class="get-verify-code" slot="suffix" @click="getVerifyCode"
+                                   :loading="getting">获取验证码
+                        </el-button>
                         <span v-else class="get-verify-code-span" slot="suffix">{{time}}秒再次获取</span>
                     </el-input>
                     <div class="err-tip" v-show="errTip">
@@ -27,15 +31,14 @@
 
 <script>
     import CModal from './c-modal'
-    import CRechargeItem from './c-recharge-item'
-    import { tSendVerifyCode } from './../../js/tips'
-    import { pGetVerifyCode, pRecharge } from './../../js/http/param'
-    import { testVerifyCode } from './../../js/utils'
+    import { pGetVerifyCode } from '@api/public/params'
+    import { pRecharge } from '@api/account/params'
+    import { testVerifyCode } from '../../utils/utils'
+
     export default {
-        name: "CRechargeModal",
+        name: 'CRechargeModal',
         components: {
-            CModal,
-            CRechargeItem
+            CModal
         },
         data() {
             return {
@@ -57,17 +60,17 @@
             getVerifyCode() {
                 pGetVerifyCode.email = this.$store.getters.getUserInfo.email
                 this.getting = true
-                this.$api.getVerifyCode(pGetVerifyCode).then(res => {
+                this.$api.public.getVerifyCode(pGetVerifyCode).then(res => {
                     console.log(res)
                     this.countdown()
                     setTimeout(() => {
                         this.getting = false
-                    },990)
+                    }, 990)
                 })
             },
             // 倒计时
             countdown() {
-                tSendVerifyCode()
+                this.$tips.sendVerifyCode()
                 const timer = setInterval(() => {
                     if (this.time <= 0) {
                         clearInterval(timer)
@@ -78,30 +81,34 @@
                 }, 1000)
             },
             getRechargeList() {
-                this.$api.getRechargeList().then(res => {
+                this.$api.account.getRechargeList().then(res => {
                     this.rechargeList = res.rechargeList
                 }).catch(err => {
                     console.error(err)
                 })
             },
             recharge() {
-                if(!this.selectedKey) {
-                    this.$tips.tError('请先选择充值面值')
+                if (!this.selectedKey) {
+                    this.$tips.error('请先选择充值面值')
                     return
                 }
                 pRecharge.rechargeKey = this.selectedKey
                 pRecharge.verifyCode = this.verifyCode
-                this.$api.recharge(pRecharge).then(res => {
-                    this.$store.dispatch('saveUserInfo', {...res})
-                    this.hide()
+                pRecharge.email = this.$store.getters.getUserInfo.email
+                console.log(pRecharge)
+                this.$api.account.recharge(pRecharge).then(res => {
+                    this.$store.dispatch('saveUserInfo', { ...res })
+                    setTimeout(() => {
+                        this.hide()
+                    }, 1000)
                 }).catch(err => {
                     console.error(err)
                 })
             },
             onInput() {
                 this.errTip = false
-                if(this.verifyCode.length === 6) {
-                    if(!testVerifyCode(this.verifyCode)) {
+                if (this.verifyCode.length === 6) {
+                    if (!testVerifyCode(this.verifyCode)) {
                         this.errTip = true
                         return
                     }
@@ -110,7 +117,7 @@
             },
             onSelect(key) {
                 this.selectedKey = key
-                if(this.selectedKey && this.verifyCode) {
+                if (this.selectedKey && this.verifyCode) {
                     this.recharge()
                 }
             },
@@ -165,9 +172,10 @@
                 color: $color;
 
                 span {
-                    font-family:Source Han Sans CN;
+                    font-family: Source Han Sans CN;
                     font-size: 16px;
                     font-weight: 200;
+
                     &:nth-child(1) {
                         font-size: 26px;
                         font-weight: 400;
@@ -210,6 +218,7 @@
         display: flex;
         align-items: center;
         padding-top: 15px;
+
         input {
             border: none;
             border-bottom: 1px solid #ee4400 !important;

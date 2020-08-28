@@ -48,16 +48,6 @@ html,body {
 	background: #f2f2f2;
 }
 
-@font-face {
-  font-family: 'DFPHaiBaoW12-GB';
-  src: url("./../../../public/font/DFPHaiBaoW12-GB.ttf");
-}
-
-@font-face {
-  font-family: 'FZMiaoWuS-GB';
-  src: url("./../../../public/font/FZMiaoWuS-GB.ttf");
-}
-
 @keyframes fade {
   from {
     opacity: 1.0;
@@ -113,15 +103,14 @@ html,body {
   url('//at.alicdn.com/t/font_1541787_5m1rtt5vyqq.svg#iconfont') format('svg');
 }
 
-.paying-tips {
-  background-color: #f0f9eb;
-  border-color: #e1f3d8;
-  color: #67C23A !important;
+.loading-tips {
+    background-color: #f0f9eb;
+    border-color: #e1f3d8;
+    color: #67C23A !important;
 
-  p {
-    margin-left: 15px;
-  }
+    p {
+        margin-left: 15px;
+    }
 }
-
 
 

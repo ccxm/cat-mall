@@ -1,5 +1,6 @@
 // m代表mixins
-import { pLikeForGoods } from './../js/http/param'
+import { pLikeForGoods } from '@api/comment/params'
+
 export const mLike = {
     data() {
         return {
@@ -18,11 +19,11 @@ export const mLike = {
         likeForGoods(goodsId) {
             console.log('开始点赞')
             pLikeForGoods.goodsId = goodsId
-            this.$api.likeForGoods(pLikeForGoods).then(res => {
+            this.$api.user.likeForGoods(pLikeForGoods).then(res => {
                 console.log(res)
-                if(this.goodsInfo) {
+                if (this.goodsInfo) {
                     this.goodsInfo.likeNum = res.likeNum
-                }else {
+                } else {
                     this.goodsDetail.likeNum = res.likeNum
                 }
                 this._updateLikeList(goodsId, res.likeState)
@@ -32,9 +33,9 @@ export const mLike = {
         },
         // 更新点赞列表
         _updateLikeList(goodsId, likeState) {
-            if(likeState) {
+            if (likeState) {
                 this.likeList.push(goodsId)
-            }else {
+            } else {
                 this.likeList.splice(this.likeList.indexOf(goodsId))
             }
         }

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import routerList from '../../assets/conf/routerList'
+    import routerList from '../../router/routerList'
 
     export default {
         name: 'CBread',
@@ -31,7 +31,7 @@
             },
             getQueryString(obj) {
                 let str = ''
-                for(let key in obj) {
+                for (let key in obj) {
                     str += `${key}=${typeof obj[key]}&`
                 }
                 return str.length ? str.substring(0, str.length - 1) : str

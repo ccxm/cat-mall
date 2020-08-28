@@ -7,7 +7,7 @@
 
 <script>
     export default {
-        name: "CRechargeItem"
+        name: 'CRechargeItem'
     }
 </script>
 
@@ -23,9 +23,10 @@
         color: $color;
 
         span {
-            font-family:Source Han Sans CN;
+            font-family: Source Han Sans CN;
             font-size: 16px;
             font-weight: 200;
+
             &:nth-child(1) {
                 font-size: 26px;
                 font-weight: 400;

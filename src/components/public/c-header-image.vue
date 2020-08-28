@@ -15,12 +15,12 @@
                 <el-dropdown-item divided @click.native="logout">登出</el-dropdown-item>
             </el-dropdown-menu>
         </el-dropdown>
-        <c-recharge-modal :show-modal="showRecharge" @hide="showRecharge = false" />
+        <c-recharge-modal :show-modal="showRecharge" @hide="showRecharge = false"/>
     </div>
 </template>
 
 <script>
-    import tokenInstance from '../../js/data-store'
+    import tokenInstance from '@utils/dataStore'
     import CRechargeModal from './c-recharge-modal'
 
     export default {

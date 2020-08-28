@@ -66,7 +66,7 @@
             }
         },
         mounted() {
-            this.bus.$on('login', () => {
+            this.$bus.$on('login', () => {
                 this.onLogin()
             })
         }

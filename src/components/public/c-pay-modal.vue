@@ -13,7 +13,9 @@
                         <span>{{getBalance}}元</span>
                     </div>
                     <div class="pay-input">
-                        <input maxlength="1" style="-webkit-text-security:disc;text-security:disc;"  autocomplete="off" type="text" :name="index" v-for="index in 6" :key="index" :ref="'password' + index" @input="onInputPassword">
+                        <input maxlength="1" style="-webkit-text-security:disc;text-security:disc;" autocomplete="off"
+                               type="text" :name="index" v-for="index in 6" :key="index" :ref="'password' + index"
+                               @input="onInputPassword">
                     </div>
                     <div v-if="!isSetKey" class="forgot-password" @click="forgotKey">
                         <span>忘记密码?</span>
@@ -21,8 +23,11 @@
                 </div>
                 <div class="pay-input-container" v-if="isSetKey && repeatKey">
                     <div class="recharge-input-container">
-                        <el-input placeholder="请输入邮箱验证码" autocomplete="off" maxlength="6" v-model="verifyCode" @input="onInput" class="verify-code">
-                            <el-button v-if="time === 60" class="get-verify-code" slot="suffix" @click="getVerifyCode" :loading="getting">获取验证码</el-button>
+                        <el-input placeholder="请输入邮箱验证码" autocomplete="off" maxlength="6" v-model="verifyCode"
+                                  @input="onInput" class="verify-code">
+                            <el-button v-if="time === 60" class="get-verify-code" slot="suffix" @click="getVerifyCode"
+                                       :loading="getting">获取验证码
+                            </el-button>
                             <span v-else class="get-verify-code-span" slot="suffix">{{time}}秒再次获取</span>
                         </el-input>
                         <div class="err-tip" v-show="errTip">
@@ -38,9 +43,9 @@
 <script>
     import CModal from './c-modal'
     import CMoney from './c-money'
-    import { tSendVerifyCode } from './../../js/tips'
-    import { pGetVerifyCode, pUpdatePaykey } from './../../js/http/param'
-    import { testVerifyCode } from './../../js/utils'
+    import { pGetVerifyCode } from '@api/public/params'
+    import { pUpdatePaykey } from '@api/account/params'
+    import { testVerifyCode } from '../../utils/utils'
 
     export default {
         name: 'CPayModal',
@@ -68,21 +73,21 @@
         },
         computed: {
             getBalance() {
-                return this.$store.getters.getUserInfo.balance
+                return this.$store.getters.getUserInfo.balance.toFixed(2)
             },
             getTitle() {
-                if(!this.isSetKey) {
+                if (!this.isSetKey) {
                     return '请输入支付密码'
-                }else if(!this.repeatKey){
+                } else if (!this.repeatKey) {
                     return '设置支付密码'
-                }else {
+                } else {
                     return '请再次输入密码'
                 }
             }
         },
         watch: {
             isClearArr(val) {
-                if(val) {
+                if (val) {
                     this.payPassword = []
                     this._clearInput()
                 }
@@ -106,54 +111,54 @@
             },
             onInputPassword(val) {
                 console.log(val.target.value)
-                if(!val.target.value) {
+                if (!val.target.value) {
                     this.onDelete()
                     return
                 }
                 // 名字绑定了数组的下标
                 const index = parseInt(val.target.name) - 1
-                if(index > this.payPassword.length) {
+                if (index > this.payPassword.length) {
                     this.payPassword.push(val.target.value)
                     console.log(`password${this.payPassword.length}`)
                     this.$refs[`password${this.payPassword.length}`][0].value = val.target.value
                     val.target.value = ''
-                }else {
+                } else {
                     this.payPassword.push(val.target.value)
                 }
                 // 密码输入完成
-                if(this.payPassword.length >= 6) {
+                if (this.payPassword.length >= 6) {
                     console.log(this.payPassword.join(''))
-                    if(this.isSetKey) {
+                    if (this.isSetKey) {
                         this.savePaykey()
                         return
                     }
-                    this.$emit('password',this.payPassword.join(''))
+                    this.$emit('password', this.payPassword.join(''))
                     return
                 }
                 this.$refs[`password${this.payPassword.length + 1}`][0].focus()
             },
             onDelete() {
-                if(!this.payPassword.length) {
+                if (!this.payPassword.length) {
                     return
                 }
                 this.payPassword.length--
-                if(this.payPassword.length) {
+                if (this.payPassword.length) {
                     this.$refs[`password${this.payPassword.length}`][0].focus()
                 }
             },
             // 保存支付密码
             savePaykey() {
-                if(!this.repeatKey) {
+                if (!this.repeatKey) {
                     this.payKey = this.payPassword.join('')
                     this.repeatKey = true
                     this.payPassword = []
                     this._clearInput()
                     console.log(this.payPassword)
-                }else if(this.payKey !== this.payPassword.join('')) {
-                    this.$tips.tError('两次密码不一致')
-                }else if(!this.verifyCode || testVerifyCode(this.verifyCode)){
-                    this.$tips.tWarn('请输入验证码')
-                }else {
+                } else if (this.payKey !== this.payPassword.join('')) {
+                    this.$tips.error('两次密码不一致')
+                } else if (!this.verifyCode || testVerifyCode(this.verifyCode)) {
+                    this.$tips.warn('请输入验证码')
+                } else {
                     console.log('设置中')
                     this.setPayKey()
                 }
@@ -161,17 +166,17 @@
             getVerifyCode() {
                 pGetVerifyCode.email = this.$store.getters.getUserInfo.email
                 this.getting = true
-                this.$api.getVerifyCode(pGetVerifyCode).then(res => {
+                this.$api.public.getVerifyCode(pGetVerifyCode).then(res => {
                     console.log(res)
                     this.countdown()
                     setTimeout(() => {
                         this.getting = false
-                    },990)
+                    }, 990)
                 })
             },
             // 倒计时
             countdown() {
-                tSendVerifyCode()
+                this.$tips.sendVerifyCode()
                 const timer = setInterval(() => {
                     if (this.time <= 0) {
                         clearInterval(timer)
@@ -183,13 +188,13 @@
             },
             onInput() {
                 this.errTip = false
-                if(this.verifyCode.length === 6) {
-                    if(!testVerifyCode(this.verifyCode)) {
+                if (this.verifyCode.length === 6) {
+                    if (!testVerifyCode(this.verifyCode)) {
                         this.errTip = true
                         return
                     }
-                    if(this.payKey !== this.payPassword.join('')) {
-                        this.$tips.tError('两次密码不一致')
+                    if (this.payKey !== this.payPassword.join('')) {
+                        this.$tips.error('两次密码不一致')
                         return
                     }
                     this.setPayKey()
@@ -200,7 +205,7 @@
                 pUpdatePaykey.verifyCode = this.verifyCode
                 pUpdatePaykey.paykey = this.payKey
                 pUpdatePaykey.email = this.$store.getters.getUserInfo.email
-                this.$api.updatePaykey(pUpdatePaykey).then(res => {
+                this.$api.account.updatePaykey(pUpdatePaykey).then(res => {
                     this.$emit('set')
                 }).catch(err => {
                     console.error(err)
@@ -208,14 +213,14 @@
             },
             forgotKey() {
                 console.log('忘记了')
-              this.$emit('forgot')
+                this.$emit('forgot')
             },
             _clearInput() {
-                for(let i = 1;i <= 6;i++) {
+                for (let i = 1; i <= 6; i++) {
                     this.$refs[`password${i}`][0].value = ''
                 }
                 this.$refs.password1[0].focus()
-                if(!this.isSetKey) {
+                if (!this.isSetKey) {
                     this.$emit('clear')
                 }
             }
@@ -223,8 +228,8 @@
         mounted() {
             console.log('执行了')
             console.log(this.$refs.password1)
-            if(this.$refs.password1) {
-                this.$nextTick(function () {
+            if (this.$refs.password1) {
+                this.$nextTick(function() {
                     this.$refs.password1[0].focus()
                 })
             }
@@ -291,7 +296,6 @@
                 border: 1px solid #888;
                 border-radius: 3px;
 
-
                 input {
                     width: 50px;
                     height: 50px;
@@ -308,8 +312,8 @@
                     };
 
                     &:nth-last-child(1) {
-                         border-right: none;
-                     }
+                        border-right: none;
+                    }
                 }
             }
         }
@@ -322,6 +326,7 @@
 
             span {
                 padding-bottom: 2px;
+
                 &:hover {
                     border-bottom: 1px solid #409EFF;
                 }
@@ -338,6 +343,7 @@
         display: flex;
         align-items: center;
         padding-top: 15px;
+
         input {
             border: none;
             border-bottom: 1px solid #ee4400 !important;
@@ -379,6 +385,5 @@
             display: inline-block;
         }
     }
-
 
 </style>

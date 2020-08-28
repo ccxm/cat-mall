@@ -1,22 +1,22 @@
 <template>
     <div class="login xy-center">
         <el-dialog
-            :title="isLogin ? '登录' : isResetPassword ? '重置密码' : '注册'"
-            :visible.sync="dialogVisible"
-            width="300px">
+                :title="isLogin ? '登录' : isResetPassword ? '重置密码' : '注册'"
+                :visible.sync="dialogVisible"
+                width="300px">
             <div>
                 <el-input
-                    placeholder="请输入邮箱"
-                    v-model="input.email">
+                        placeholder="请输入邮箱"
+                        v-model="input.email">
                     <img slot="prefix" src="./../../../public/images/public/email.png"/>
                 </el-input>
                 <div class="err-tip" v-show="errTip[0]">
                     <i class="el-icon-warning">邮箱格式不正确</i>
                 </div>
                 <el-input
-                    :placeholder="isResetPassword ? '请输入新密码'  : '请输入新密码'"
-                    :type="isShowPwd ? 'text' : 'password'"
-                    v-model="input.password">
+                        :placeholder="isResetPassword ? '请输入新密码'  : '请输入新密码'"
+                        :type="isShowPwd ? 'text' : 'password'"
+                        v-model="input.password">
                     <img slot="prefix" src="./../../../public/images/public/pwd.png"/>
                     <img slot="suffix" @click="isShowPwd = !isShowPwd"
                          :src="require(`./../../../public/images/public/show${isShowPwd}.png`)"/>
@@ -39,7 +39,9 @@
                           placeholder="邮箱验证码"
                           v-model="input.verifyCode">
                     <img slot="prefix" src="./../../../public/images/public/email.png"/>
-                    <el-button v-if="time === 60" class="get-verify-code" slot="suffix" @click="getVerifyCode" :loading="getting">获取验证码</el-button>
+                    <el-button v-if="time === 60" class="get-verify-code" slot="suffix" @click="getVerifyCode"
+                               :loading="getting">获取验证码
+                    </el-button>
                     <span v-else class="get-verify-code-span" slot="suffix">{{time}}秒再次获取</span>
                 </el-input>
                 <div class="err-tip" v-show="errTip[3]">
@@ -49,7 +51,8 @@
                     <el-button round @click="submit">{{isLogin ? '登录' : isResetPassword ? '重置密码' : '注册'}}</el-button>
                     <div class="footer-btn">
                         <el-button type="text" @click="changeMode">立即{{isLogin ? '注册' : '登录'}}</el-button>
-                        <el-button type="text" @click="changeResetMode">{{isResetPassword ? '立即注册' : '忘记密码？'}}</el-button>
+                        <el-button type="text" @click="changeResetMode">{{isResetPassword ? '立即注册' : '忘记密码？'}}
+                        </el-button>
                     </div>
                 </div>
             </div>
@@ -61,10 +64,10 @@
 
 <script>
     import CModal from './c-modal'
-    import { tSendVerifyCode } from './../../js/tips'
-    import { testEmail, testPassword, testVerifyCode } from './../../js/utils'
-    import { pLogin, pRegister, pGetVerifyCode, pResetPassword } from './../../js/http/param'
-    import dataStore from '../../js/data-store'
+    import { testEmail, testPassword, testVerifyCode } from '../../utils/utils'
+    import { pLogin, pRegister, pResetPassword } from '@api/user/params'
+    import { pGetVerifyCode } from '@api/public/params'
+    import dataStore from '@utils/dataStore'
 
     export default {
         name: 'CLogin',
@@ -151,7 +154,7 @@
             },
             // 倒计时
             countdown() {
-                tSendVerifyCode()
+                this.$tips.sendVerifyCode()
                 const timer = setInterval(() => {
                     if (this.time <= 0) {
                         clearInterval(timer)
@@ -165,14 +168,14 @@
             login() {
                 pLogin.email = this.input.email
                 pLogin.password = this.input.password
-                this.$api.login(pLogin).then(async res => {
+                this.$api.user.login(pLogin).then(async res => {
                     // 先保存token，才能请求余额
                     dataStore.saveToken(res.token)
                     // 获取账户余额
                     res.userInfo.balance = await this.fetchBalance()
                     console.log(res)
                     this.$store.dispatch('saveUserInfo', res.userInfo)
-                    this.bus.$emit('login')
+                    this.$bus.$emit('login')
                     this._hideLoginModal()
                 }).catch(err => {
                     console.log(err)
@@ -184,7 +187,7 @@
                 param.email = this.input.email
                 param.password = this.input.password
                 param.verifyCode = this.input.verifyCode
-                this.$api[this.isResetPassword ? 'resetPassword' : 'register'](param).then(res => {
+                this.$api.user[this.isResetPassword ? 'resetPassword' : 'register'](param).then(res => {
                     console.log(res)
                     dataStore.saveToken(res.token)
                     dataStore.saveUserInfo(res.userInfo)
@@ -196,7 +199,7 @@
             },
             fetchBalance() {
                 return new Promise(resolve => {
-                    this.$api.getBalance().then(res => {
+                    this.$api.account.getBalance().then(res => {
                         console.log(res)
                         resolve(res.balance)
                     }).catch(err => {
@@ -212,12 +215,12 @@
                 }
                 pGetVerifyCode.email = this.input.email
                 this.getting = true
-                this.$api.getVerifyCode(pGetVerifyCode).then(res => {
+                this.$api.public.getVerifyCode(pGetVerifyCode).then(res => {
                     console.log(res)
                     this.countdown()
                     setTimeout(() => {
                         this.getting = false
-                    },990)
+                    }, 990)
                 })
             },
             // 隐藏登录模态框
