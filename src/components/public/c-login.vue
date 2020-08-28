@@ -177,8 +177,6 @@
                     this.$store.dispatch('saveUserInfo', res.userInfo)
                     this.$bus.$emit('login')
                     this._hideLoginModal()
-                }).catch(err => {
-                    console.log(err)
                 })
             },
             // 注册
@@ -193,8 +191,6 @@
                     dataStore.saveUserInfo(res.userInfo)
                     this.$store.dispatch('saveUserInfo', res.userInfo)
                     this._hideLoginModal()
-                }).catch(err => {
-                    console.log(err)
                 })
             },
             fetchBalance() {
@@ -202,8 +198,6 @@
                     this.$api.account.getBalance().then(res => {
                         console.log(res)
                         resolve(res.balance)
-                    }).catch(err => {
-                        console.error(err)
                     })
                 })
             },

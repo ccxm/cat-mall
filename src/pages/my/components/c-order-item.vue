@@ -112,8 +112,6 @@
                 pDeleteOrder.orderId = this.orderItem.orderId
                 this.$api.order.deleteOrder(pDeleteOrder).then(res => {
                     this.$emit('del')
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             goToDetail(goodsId, type) {

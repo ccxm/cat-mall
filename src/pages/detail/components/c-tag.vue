@@ -37,8 +37,6 @@
                     setTimeout(() => {
                         this.isShowLikeAnimation = false
                     }, 700)
-                }).catch(err => {
-                    console.error(err)
                 })
             }
         }

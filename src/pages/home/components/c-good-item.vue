@@ -77,8 +77,6 @@
                 this.$api.cart.addToCart(pAddToCart).then(res => {
                     this.showToast = true
                     this.$bus.$emit('updateCartLength')
-                }).catch(err => {
-                    console.log(err)
                 })
             },
             // 去详情

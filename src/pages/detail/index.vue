@@ -137,8 +137,6 @@
                 this.$api.goods.getGoodsDetail(pGetGoodsDetail).then(res => {
                     console.log(res)
                     this.goodsDetail = res
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             // 监听购买数量
@@ -167,8 +165,6 @@
                 this.$api.addToCart(pAddToCart).then(res => {
                     this.showToast = true
                     this.$bus.$emit('updateCartLength')
-                }).catch(err => {
-                    console.log(err)
                 })
             }
         },

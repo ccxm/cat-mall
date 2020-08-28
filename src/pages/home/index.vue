@@ -115,8 +115,6 @@
                     } else {
                         this.busy = true
                     }
-                }).catch(err => {
-                    console.log(err)
                 })
             },
             loadMore() {

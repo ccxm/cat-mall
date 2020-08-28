@@ -62,8 +62,6 @@
                 this.$api.user.deleteAddress(pDeleteAddress).then(res => {
                     console.log(res)
                     this.$bus.$emit('updateAddressList')
-                }).catch(err => {
-                    console.log(err)
                 })
             }
         }

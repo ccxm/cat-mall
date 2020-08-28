@@ -142,16 +142,12 @@
                     if (this.addressList.length) {
                         pCreateOrder.addressId = this.addressList[0].addressId
                     }
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             fetchGoodsInfo() {
                 pGetGoodsInfoList.goodsIdList = this._getGoodsIdList()
                 this.$api.goods.getGoodsInfoList(pGetGoodsInfoList).then(res => {
                     this.$store.dispatch('setGoodsInfoList', this._addNumToGoodsInfoList(res.goodsInfoList))
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             fetchBalance() {
@@ -170,16 +166,12 @@
                     this.orderId = res.orderId
                     this.totalAmount = res.totalAmount
                     this._controllerPayModal(true)
-                }).catch(err => {
-                    console.log(err)
                 })
             },
             payForOrder(paykey) {
                 pPayForOrder.paykey = paykey
                 pPayForOrder.orderId = this.orderId
-                // const loading = this.$tips.loading('支付中，请稍后')
                 this.$api.order.payForOrder(pPayForOrder).then(res => {
-                    // this._paySuccess(loading)
                     this.isPayed = true
                     this.changeStep(4)
                     setTimeout(() => {
@@ -188,11 +180,7 @@
                     }, 500)
                 }).catch(err => {
                     console.log(err)
-                    // loading.close()
                     this.isClearArr = true
-                    // this.changeStep(4)
-                    // this._controllerPayModal(false)
-                    // this._paySuccess(loading)
                 })
             },
             onConfirm() {
@@ -291,8 +279,6 @@
             _checkHasPaykey() {
                 this.$api.account.checkHasPaykey().then(res => {
                     this.hasPaykey = res.hasPaykey
-                }).catch(err => {
-                    console.error(err)
                 })
             }
         },

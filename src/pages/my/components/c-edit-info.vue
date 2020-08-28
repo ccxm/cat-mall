@@ -113,9 +113,6 @@
                     console.log(res)
                     this.nickNameCanUse = res.canUse
                     this.searchingNickname = false
-                }).catch(err => {
-                    console.log(err)
-                    this.searchingNickname = false
                 })
             },
             save() {
@@ -141,8 +138,6 @@
                     this.$store.dispatch('saveUserInfo', res)
                     dataStore.saveUserInfo(res)
                     this.$emit('hide')
-                }).catch(err => {
-                    console.log(err)
                 })
             }
         }

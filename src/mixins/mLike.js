@@ -27,8 +27,6 @@ export const mLike = {
                     this.goodsDetail.likeNum = res.likeNum
                 }
                 this._updateLikeList(goodsId, res.likeState)
-            }).catch(err => {
-                console.error(err)
             })
         },
         // 更新点赞列表

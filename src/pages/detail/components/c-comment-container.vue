@@ -80,8 +80,6 @@
                 pGetBriefList.goodsId = this.goodsId
                 this.$api.comment.getBriefList(pGetBriefList).then(res => {
                     this.briefList = res.briefList
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             getCommentList() {
@@ -91,8 +89,6 @@
                     this.isLoadedComment = true
                     this.commentList = res.commentList
                     this.totalCommentNum = res.totalCommentNum
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             writeComment() {
@@ -102,8 +98,6 @@
                 this.$api.comment.writeComment(pWriteComment).then(res => {
                     this.getCommentList()
                     this._clearCommentData()
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             // 监听评论点赞数量的变化
@@ -114,8 +108,6 @@
             getCommentLikeList() {
                 this.$api.user.getCommentLikeList().then(res => {
                     this.commentLikeList = res.commentLikeList
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             // 清空评论数据

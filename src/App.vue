@@ -22,8 +22,6 @@
             getCartList() {
                 this.$api.cart.getCartLength().then(res => {
                     this.$store.dispatch('saveUserInfo', { ...res })
-                }).catch(err => {
-                    console.error(err)
                 })
             }
         },

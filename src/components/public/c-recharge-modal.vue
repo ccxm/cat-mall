@@ -83,8 +83,6 @@
             getRechargeList() {
                 this.$api.account.getRechargeList().then(res => {
                     this.rechargeList = res.rechargeList
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             recharge() {
@@ -101,8 +99,6 @@
                     setTimeout(() => {
                         this.hide()
                     }, 1000)
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             onInput() {

@@ -116,8 +116,6 @@
                     console.log(res)
                     this.hide()
                     this.$bus.$emit('updateAddressList')
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             updateAddress() {
@@ -125,8 +123,6 @@
                     console.log(res)
                     this.hide()
                     this.$bus.$emit('updateAddressList')
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             // 填充编辑的数据

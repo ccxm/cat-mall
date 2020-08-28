@@ -52,8 +52,6 @@
             writeBrief() {
                 this.$api.comment.writeBrief(pWriteBrief).then(res => {
                     this.updateBriefList(res.briefItem)
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             // 更新短评数组

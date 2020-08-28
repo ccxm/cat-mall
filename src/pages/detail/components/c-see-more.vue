@@ -63,8 +63,6 @@
                 this.$api.goods.getMoreGoods(pGetMoreGoods).then(res => {
                     console.log(res)
                     this.moreGoodsList = this.moreGoodsList.concat(res.moreGoodsList)
-                }).catch(err => {
-                    console.log(err)
                 })
             },
             // 去详情

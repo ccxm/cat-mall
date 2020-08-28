@@ -25,8 +25,6 @@
                 this.$api.user.getAddress().then(res => {
                     console.log(res)
                     this.addressList = res.addressList
-                }).catch(err => {
-                    console.error(err)
                 })
             }
         },

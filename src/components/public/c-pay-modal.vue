@@ -207,8 +207,6 @@
                 pUpdatePaykey.email = this.$store.getters.getUserInfo.email
                 this.$api.account.updatePaykey(pUpdatePaykey).then(res => {
                     this.$emit('set')
-                }).catch(err => {
-                    console.error(err)
                 })
             },
             forgotKey() {
