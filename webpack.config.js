@@ -36,9 +36,9 @@ module.exports = {
             // dll文件位置
             filepath: path.resolve(__dirname, './public/vendor/*.js'),
             // dll 引用路径
-            publicPath: '/zhhy/vendor',
+            publicPath: '/vendor',
             // dll最终输出的目录
-            outputPath: '/zhhy/vendor'
+            outputPath: '/vendor'
         }),
         /** 非ie使用，ie则注释掉结束 */
         // 显示时间滚动条
