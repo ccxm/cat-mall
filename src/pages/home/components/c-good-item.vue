@@ -17,7 +17,7 @@
                 <c-money class="discount" :money="goodsInfo.originalPrice" size="d-xs"/>
             </div>
             <div class="member">
-                <img src="/images/home/member.png">
+                <img src="./../../../../public/images/home/member.png">
                 <span>会员价</span>
                 <c-money :money="goodsInfo.memberPrice" size="xs"/>
             </div>
