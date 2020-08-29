@@ -8,7 +8,9 @@
                 <c-address-container/>
             </el-tab-pane>
             <el-tab-pane :label="tabList[2]" :name="'2'">
-                {{tabList[2]}}
+                <iframe class="global-scrollbar api-doc"
+                        src="https://mall.cxmmao.com/cat-mall-api-doc/">
+                </iframe>
             </el-tab-pane>
             <!--            <el-tab-pane :label="tabList[3]" :name="'3'">-->
             <!--                {{tabList[3]}}-->
@@ -48,7 +50,11 @@
                 }
             }
         },
-        methods: {}
+        methods: {
+            // openApiDoc() {
+            //     window.open('https://mall.cxmmao.com/cat-mall-api-doc/')
+            // }
+        }
     }
 </script>
 
@@ -115,5 +121,11 @@
         justify-content: space-between;
         width: 600px;
         margin: 0 auto;
+    }
+
+    .api-doc {
+        width: 100%;
+        height: 500px;
+        border: 0;
     }
 </style>

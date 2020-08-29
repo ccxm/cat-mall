@@ -1,6 +1,6 @@
 <template>
     <div class="c-foot xy-center">
-        <div class="contact-icon" v-if="false">
+        <div class="contact-icon">
             <el-tooltip class="item" effect="dark" content="https://github.com/ccxm" placement="top-start">
                 <el-button class="item-icon icon-1"></el-button>
             </el-tooltip>
@@ -11,7 +11,7 @@
                 <el-button class="item-icon icon-3"></el-button>
             </el-tooltip>
         </div>
-        <div class="qr-code x-center" v-if="false">
+        <div class="qr-code x-center">
             <div class="xy-center">
                 <img src="./../../../public/images/public/qrcode.png">
                 <span>公众号</span>
@@ -21,15 +21,10 @@
                 <span>个人号</span>
             </div>
         </div>
-        <div class="detail" v-if="false">
+        <div class="detail">
             <span>ICP备12345678号</span>
             <span>Copyright© 2019 Cxm. All Rights Reserved. 丑小喵 版权所有</span>
             <span>Powered by Cxm 1.0.0</span>
-        </div>
-        <div class="detail">
-            <span>ICP备12345678号</span>
-            <span>Copyright© 2019 Dee. All Rights Reserved. 啊岩 版权所有</span>
-            <span>Powered by Dee 1.0.0</span>
         </div>
     </div>
 </template>

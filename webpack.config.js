@@ -6,7 +6,7 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const chalk = require('chalk')
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, '.', dir)
 }
 
@@ -21,7 +21,7 @@ module.exports = {
             '@public': resolve('public'),
             '@components': resolve('src/components'),
             '@api': resolve('src/api'),
-            '@utils': resolve('src/utils'),
+            '@utils': resolve('src/utils')
         }
     },
     plugins: [
@@ -43,7 +43,7 @@ module.exports = {
         /** 非ie使用，ie则注释掉结束 */
         // 显示时间滚动条
         new ProgressBarPlugin({
-            format: ' build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+            format: ' build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
             clear: false
         })
     ]
