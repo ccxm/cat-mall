@@ -8,7 +8,7 @@
 
 后端源码：https://github.com/ccxm/cat-mall-server
 
-体验账号：1532917281@qq.com，123456 
+体验账号：cxmmao@163.com，123456 
 
 (ps: 此账号是真实的邮箱，要用到验证码的地方还是要自己注册一个账号哦)
 
